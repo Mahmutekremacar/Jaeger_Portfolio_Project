@@ -67,34 +67,13 @@ Filters_Used = DME_Tot_Suplr_Clms × (1 + COPD_Weight) × random_variation
 
 ---
 
-## 🚀 How to Run This Project
-
-1. Clone the repo:
-```bash
-git clone https://github.com/yourusername/lab-filter-ai
-cd lab-filter-ai
-```
-
-2. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
-
-3. Run the dashboard:
-```bash
-streamlit run dashboards/streamlit_app.py
-```
-
----
-
 ## 📁 Folder Structure
-
+Data: https://data.cms.gov/provider-summary-by-type-of-service/medicare-durable-medical-equipment-devices-supplies/medicare-durable-medical-equipment-devices-supplies-by-referring-provider
 ```
 lab-filter-ai/
 ├── data/                     # Raw and processed CSVs
 ├── notebooks/                # Jupyter notebooks for simulation and modeling
 ├── dashboards/               # Streamlit app
-├── reports/                  # Markdown reports and summaries
 └── README.md
 ```
 
@@ -102,7 +81,12 @@ lab-filter-ai/
 
 ## 📸 Example Screenshots
 
-_Add your scatter plot, dashboard UI, and KPI pie chart here._
+![image](https://github.com/user-attachments/assets/d9d01440-ff35-40eb-9e6e-4b17c9a6bb29)
+![image](https://github.com/user-attachments/assets/da6b21cb-7865-43ac-9180-848301ce12a4)
+![image](https://github.com/user-attachments/assets/a527c9d1-c7d9-45dc-9c19-0f83bdee4ef7)
+![image](https://github.com/user-attachments/assets/b9fbbb72-438b-45cb-bb4b-20edb4dd3720)
+![image](https://github.com/user-attachments/assets/9ccd59ad-809f-4c07-b9e8-0a827fda7e9e)
+
 
 ---
 
