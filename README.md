@@ -1,50 +1,119 @@
-1. **Problem Definition:**
-Company focus: JAEGER RDX produces high-performance respiratory protection filters like the Microgard II PFT filter, designed for use in laboratory and industrial settings to protect workers from hazardous particles, gases, and vapors.
 
-These filters need regular replacement depending on:
+# 🧪 AI-Powered Lab Filter Replenishment Optimization
 
-- Lab activity level
+This project simulates respiratory filter usage for labs using Medicare DME claims data and applies machine learning to identify operational inefficiencies.
 
-- Contamination exposure
+## 🎯 Project Goal
 
-- Filter age and type
+To predict and optimize the replacement of respiratory filters (like MicroGard II) in labs based on:
+- The number of Pulmonary Function Tests (PFTs)
+- The COPD prevalence among patients
 
-- Compliance and safety regulations
+## 🧠 What This Project Does
 
-Failure to replace them on time leads to:
-
-- Safety risks
-
-- Operational downtime
-
-- Failed inspections
-
-- Unplanned costs
-
-2. **AI's Role in Operations
-**
--Identify repetitive or error-prone manual processes
-
-- Use AI to forecast, optimize, and automate tasks
-
-- Support decision-making with predictive analytics and KPIs
-
-3.** Problem Statement (Framed for AI in Operations)**
-"Can we build an AI-based model to forecast how many respiratory filters will need to be replaced next month in each lab, based on historical usage, environmental risk, and compliance data — to support inventory planning, reduce unplanned replacements, and improve operational performance?"
-
-4.**High-Level Feature Brainstorming**
-
-These features will be **simulated** to train your AI model:
-
-| Feature                    | Why it matters                                   |
-| -------------------------- | ------------------------------------------------ |
-| `avg_usage_hours_per_day`  | More usage = faster wear                         |
-| `contamination_level`      | Higher contamination = faster filter degradation |
-| `filter_age_avg`           | Older filters are closer to end-of-life          |
-| `compliance_score`         | Non-compliant labs may delay replacements        |
-| `service_calls_last_month` | Indicates possible malfunctioning filters        |
-| `stock_available`          | Stock level affects replacement decisions        |
-| `lab_type`                 | Different labs have different usage patterns     |
+- **Simulates filter demand** using PFT claims and COPD burden
+- **Applies Isolation Forest (unsupervised ML)** to detect anomalies in usage
+- **Builds a real-time KPI dashboard** using Streamlit
+- **Visualizes over- and under-consumption zones**
+- **Enables automation insights** for inventory and provider audits
 
 ---
 
+## 📊 Tools & Technologies
+
+| Component | Tool |
+|----------|------|
+| Data Source | Medicare DME CSV (claims + clinical risk) |
+| Language | Python |
+| Dashboard | Streamlit |
+| AI Model | Isolation Forest (sklearn) |
+| Visualization | matplotlib, seaborn |
+| Forecasting (optional) | Prophet |
+| Reporting | Markdown, Jupyter |
+
+---
+
+## 🧩 Key Features
+
+### ✅ Filter Demand Simulation
+```python
+Filters_Used = DME_Tot_Suplr_Clms × (1 + COPD_Weight) × random_variation
+```
+
+### ✅ Anomaly Detection
+- Input: `Filters_Used`, `COPD_Weight`
+- Model: `IsolationForest(contamination=0.05)`
+- Output: `Anomaly` labels for over/under usage
+
+### ✅ Optimization Zones
+- 🔴 Over-Consumption
+- 🟢 Under-Consumption
+- 🔵 Optimal
+
+### ✅ Streamlit Dashboard Includes
+- KPI tiles (total, average, flagged)
+- Pie chart of optimization zones
+- Scatterplot of anomalies
+- Provider-level data table
+
+---
+
+## 🔁 AI Automation Ideas
+
+- **Auto-reorder filters** when usage exceeds predicted values
+- **Alert system** for over-/under-using labs
+- **Weekly anomaly report export**
+- **Inventory scaling** based on COPD-driven forecast
+
+---
+
+## 🚀 How to Run This Project
+
+1. Clone the repo:
+```bash
+git clone https://github.com/yourusername/lab-filter-ai
+cd lab-filter-ai
+```
+
+2. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+3. Run the dashboard:
+```bash
+streamlit run dashboards/streamlit_app.py
+```
+
+---
+
+## 📁 Folder Structure
+
+```
+lab-filter-ai/
+├── data/                     # Raw and processed CSVs
+├── notebooks/                # Jupyter notebooks for simulation and modeling
+├── dashboards/               # Streamlit app
+├── reports/                  # Markdown reports and summaries
+└── README.md
+```
+
+---
+
+## 📸 Example Screenshots
+
+_Add your scatter plot, dashboard UI, and KPI pie chart here._
+
+---
+
+## 🧠 Author
+
+**Ekrem Acar**  
+_Applied AI for healthcare operations_  
+_Built with Streamlit, sklearn, and real Medicare claims data_
+
+---
+
+## 📜 License
+
+MIT License — use, share, build!
